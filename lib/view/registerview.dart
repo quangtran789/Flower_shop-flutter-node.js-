@@ -3,7 +3,7 @@ import 'package:byshop/utils/global.colors.dart';
 import 'package:byshop/view/loginview.dart';
 import 'package:byshop/view/widgets/CustomButton.dart';
 import 'package:byshop/view/widgets/custom_textfield.dart';
-import 'package:byshop/view/widgets/text.from.global.dart';
+
 import 'package:flutter/material.dart';
 
 class Registerview extends StatefulWidget {
@@ -78,19 +78,19 @@ class _RegisterviewState extends State<Registerview> {
                       CustomTextfield(
                         controller: emailController,
                         hintText: 'Email',
-                        icon: Icons.email,
+                        
                       ),
                       const SizedBox(height: 10),
                       CustomTextfield(
                         controller: nameController,
                         hintText: 'Tên đăng nhập',
-                        icon: Icons.person,
+                        
                       ),
                       const SizedBox(height: 10),
                       CustomTextfield(
                         controller: passwordController,
                         hintText: 'Mật khẩu',
-                        icon: Icons.password,
+                        
                       ),
                       const SizedBox(height: 20),
                       CustomButton(

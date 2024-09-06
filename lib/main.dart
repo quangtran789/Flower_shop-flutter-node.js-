@@ -2,11 +2,9 @@ import 'package:byshop/common/widgets/botton_bar.dart';
 import 'package:byshop/providers/user_provider.dart';
 import 'package:byshop/route.dart';
 import 'package:byshop/services/auth_services.dart';
-import 'package:byshop/view/home/screens/home_screen.dart';
+import 'package:byshop/view/admin/screens/admin_screen.dart';
 import 'package:byshop/view/loginview.dart';
-import 'package:byshop/view/splashview.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:provider/provider.dart';
 
 void main() {
@@ -39,13 +37,14 @@ class _MainAppState extends State<MainApp> {
 
   @override
   Widget build(BuildContext context) {
-    return GetMaterialApp(
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
-      initialRoute: SplashView.routeName,
       onGenerateRoute: generateRoute,
       home: Provider.of<UserProvider>(context).user.token.isNotEmpty
-          ? const BottonBar()
-          : const SplashView(),
+          ? Provider.of<UserProvider>(context).user.type == 'user'
+              ? const BottomBar()
+              : const AdminScreen()
+          : const Loginview(),
     );
   }
 }

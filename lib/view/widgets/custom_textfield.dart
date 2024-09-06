@@ -3,13 +3,14 @@ import 'package:flutter/material.dart';
 class CustomTextfield extends StatelessWidget {
   final TextEditingController controller;
   final String hintText;
-  final IconData icon; // Thêm thuộc tính để nhận icon
+  final int maxLines;
+
 
   const CustomTextfield({
     super.key,
     required this.controller,
     required this.hintText,
-    required this.icon, // Yêu cầu icon khi khởi tạo
+    this.maxLines = 1,
   });
 
   @override
@@ -30,7 +31,7 @@ class CustomTextfield extends StatelessWidget {
       child: TextFormField(
         controller: controller,
         decoration: InputDecoration(
-          prefixIcon: Icon(icon), // Thêm icon vào bên trái
+           // Thêm icon vào bên trái
           hintText: hintText,
           border: const OutlineInputBorder(
             borderSide: BorderSide(
@@ -51,6 +52,7 @@ class CustomTextfield extends StatelessWidget {
           }
           return null;
         },
+        maxLines: maxLines,
       ),
     );
   }

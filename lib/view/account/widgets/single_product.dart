@@ -14,7 +14,7 @@ class SingleProduct extends StatelessWidget {
             color: Colors.black12,
             width: 1.5,
           ),
-          borderRadius: BorderRadius.circular(5),
+          borderRadius: BorderRadius.circular(10),
           color: Colors.white,
         ),
         child: Container(
@@ -22,7 +22,7 @@ class SingleProduct extends StatelessWidget {
           padding: const EdgeInsets.all(10),
           child: Image.network(
             image,
-            fit: BoxFit.fitHeight,
+            fit: BoxFit.cover,
             width: 180,
           ),
         ),

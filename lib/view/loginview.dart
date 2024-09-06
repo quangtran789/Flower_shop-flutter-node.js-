@@ -1,14 +1,12 @@
 import 'package:byshop/services/auth_services.dart';
-import 'package:byshop/utils/global.colors.dart';
 import 'package:byshop/view/registerview.dart';
 import 'package:byshop/view/widgets/CustomButton.dart';
 import 'package:byshop/view/widgets/custom_textfield.dart';
-
 import 'package:byshop/view/widgets/social.login.dart';
-import 'package:byshop/view/widgets/text.from.global.dart';
 import 'package:flutter/material.dart';
 
 class Loginview extends StatefulWidget {
+  static const String routeName = '/auth-login';
   const Loginview({super.key});
 
   @override
@@ -102,7 +100,7 @@ class _LoginviewState extends State<Loginview> {
                             CustomTextfield(
                               controller: emailController,
                               hintText: 'Tài khoản email',
-                              icon: Icons.email,
+                              
                             ),
                             const SizedBox(
                               height: 15,
@@ -110,7 +108,7 @@ class _LoginviewState extends State<Loginview> {
                             CustomTextfield(
                               controller: passwordController,
                               hintText: 'Mật khẩu',
-                              icon: Icons.password,
+                              
                             ),
                             const SizedBox(
                               height: 20,

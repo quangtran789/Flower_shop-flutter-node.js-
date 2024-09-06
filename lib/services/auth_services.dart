@@ -28,6 +28,7 @@ class AuthServices {
         address: '',
         type: '',
         token: '',
+        cart: [],
       );
 
       http.Response res = await http.post(
@@ -80,7 +81,7 @@ class AuthServices {
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           Navigator.pushNamedAndRemoveUntil(
             context,
-            BottonBar.routeName,
+            BottomBar.routeName,
             (route) => false,
           );
         },

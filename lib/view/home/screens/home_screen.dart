@@ -1,8 +1,11 @@
-import 'package:byshop/providers/user_provider.dart';
 import 'package:byshop/utils/global.colors.dart';
+import 'package:byshop/view/home/widgets/address_box.dart';
+import 'package:byshop/view/home/widgets/carousel_image.dart';
+import 'package:byshop/view/home/widgets/deal_of_day.dart';
+import 'package:byshop/view/home/widgets/top_categories.dart';
+import 'package:byshop/view/search/screens/search_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
-import 'package:badges/badges.dart' as badges;
+
 
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
@@ -13,9 +16,13 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  void navigateToSearchScreen(String query) {
+    Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
+  }
+
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
+    
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
@@ -37,6 +44,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     borderRadius: BorderRadius.circular(7),
                     elevation: 1,
                     child: TextFormField(
+                      onFieldSubmitted: navigateToSearchScreen,
                       decoration: InputDecoration(
                           prefixIcon: InkWell(
                             onTap: () {},
@@ -88,8 +96,17 @@ class _HomeScreenState extends State<HomeScreen> {
           ),
         ),
       ),
-      body: Center(
-        child: Text(user.toJson()),
+      body: SingleChildScrollView(
+        child: Column(
+          children: const [
+            AddressBox(),
+            SizedBox(height: 10),
+            TopCategories(),
+            SizedBox(height: 10),
+            CarouselImage(),
+            DealOfDay(),
+          ],
+        ),
       ),
     );
   }
