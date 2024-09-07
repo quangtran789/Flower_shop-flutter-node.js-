@@ -19,71 +19,87 @@ class SearchedProduct extends StatelessWidget {
     if (totalRating != 0) {
       avgRating = totalRating / product.rating!.length;
     }
+
     return Column(
       children: [
         Container(
           margin: const EdgeInsets.symmetric(
             horizontal: 10,
           ),
-          child: Row(
-            children: [
-              Image.network(
-                product.images[0],
-                fit: BoxFit.contain,
-                height: 135,
-                width: 135,
-              ),
-              Column(
-                children: [
-                  Container(
-                    width: 235,
-                    padding: const EdgeInsets.symmetric(horizontal: 10),
-                    child: Text(
-                      product.name,
-                      style: const TextStyle(
-                        fontSize: 16,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 5),
+            child: Row(
+              children: [
+                ClipRRect(
+                  borderRadius:
+                      BorderRadius.circular(8.0), // Optional: rounded corners
+                  child: Image.network(
+                    product.images[0],
+                    width: 120, // Define a width for the image
+                    height: 120, // Define a height for the image
+                    fit: BoxFit.cover,
+                  ),
+                ),
+                Column(
+                  children: [
+                    Container(
+                      width: 235,
+                      padding: const EdgeInsets.symmetric(horizontal: 10),
+                      child: Text(
+                        product.name,
+                        style: const TextStyle(
+                            fontSize: 18,
+                            fontFamily: 'Matemasie',
+                            fontWeight: FontWeight.w600),
+                        maxLines: 2,
                       ),
-                      maxLines: 2,
                     ),
-                  ),
-                  Container(
-                    width: 235,
-                    padding: const EdgeInsets.only(left: 10, top: 5),
-                    child: Stars(
-                      rating: avgRating,
-                    ),
-                  ),
-                  Container(
-                    width: 235,
-                    padding: const EdgeInsets.only(left: 10, top: 5),
-                    child: Text(
-                      '\$${product.price}',
-                      style: const TextStyle(
-                        fontSize: 20,
-                        fontWeight: FontWeight.bold,
+                    Container(
+                      width: 235,
+                      padding: const EdgeInsets.only(left: 10, top: 5),
+                      child: Stars(
+                        rating: avgRating,
                       ),
-                      maxLines: 2,
                     ),
-                  ),
-                  Container(
-                    width: 235,
-                    padding: const EdgeInsets.only(left: 10),
-                    child: const Text('Eligible for FREE Shipping'),
-                  ),
-                  Container(
-                    width: 235,
-                    padding: const EdgeInsets.only(left: 10, top: 5),
-                    child: const Text(
-                      'In Stock',
-                      style: TextStyle(
-                        color: Colors.teal,
+                    Container(
+                      width: 235,
+                      padding: const EdgeInsets.only(left: 10, top: 5),
+                      child: Text(
+                        '\$${product.price}',
+                        style: const TextStyle(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w300,
+                          fontFamily: 'Matemasie',
+                        ),
+                        maxLines: 2,
                       ),
-                      maxLines: 2,
                     ),
-                  ),
-                ],
-              ),
-            ],
+                    Container(
+                      width: 235,
+                      padding: const EdgeInsets.only(left: 10),
+                      child: const Text(
+                        'Đủ điều kiện để được giao hàng MIỄN PHÍ',
+                        style: const TextStyle(
+                          fontFamily: 'Matemasie',
+                        ),
+                      ),
+                    ),
+                    Container(
+                      width: 235,
+                      padding: const EdgeInsets.only(left: 10, top: 5),
+                      child: const Text(
+                        'Còn hàng',
+                        style: TextStyle(
+                          color: Colors.teal,
+                          fontFamily: 'Matemasie',
+                        ),
+                        maxLines: 2,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
           ),
         ),
       ],

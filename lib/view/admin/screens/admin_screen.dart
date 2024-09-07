@@ -1,4 +1,6 @@
 import 'package:byshop/utils/global.colors.dart';
+import 'package:byshop/view/admin/screens/analytics_screen.dart';
+import 'package:byshop/view/admin/screens/order_screen.dart';
 import 'package:byshop/view/admin/screens/posts_admin.dart';
 import 'package:flutter/material.dart';
 
@@ -16,12 +18,8 @@ class _AdminScreenState extends State<AdminScreen> {
 
   List<Widget> pages = [
     const PostsScreen(),
-    const Center(
-      child: Text('Analytics Page'),
-    ),
-    const Center(
-      child: Text('Cart Page'),
-    ),
+    const AnalyticsScreen(),
+    const OrderScreen(),
   ];
 
   void updatePage(int page) {

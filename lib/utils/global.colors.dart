@@ -16,8 +16,8 @@ class GlobalVariables {
   // COLORS
   static const appBarGradient = LinearGradient(
     colors: [
-      Color(0xff3ABEF9),
-      Color.fromARGB(255, 125, 221, 216),
+      Color(0xffffc6c7),
+      Color.fromARGB(255, 234, 44, 168),
     ],
     stops: [0.5, 1.0],
   );
@@ -29,11 +29,10 @@ class GlobalVariables {
   static const unselectedNavBarColor = Colors.black87;
   // STATIC IMAGES
   static const List<String> carouselImages = [
-    'https://images-eu.ssl-images-amazon.com/images/G/31/img21/Wireless/WLA/TS/D37847648_Accessories_savingdays_Jan22_Cat_PC_1500.jpg',
-    'https://images-eu.ssl-images-amazon.com/images/G/31/img2021/Vday/bwl/English.jpg',
-    'https://images-eu.ssl-images-amazon.com/images/G/31/img22/Wireless/AdvantagePrime/BAU/14thJan/D37196025_IN_WL_AdvantageJustforPrime_Jan_Mob_ingress-banner_1242x450.jpg',
-    'https://images-na.ssl-images-amazon.com/images/G/31/Symbol/2020/00NEW/1242_450Banners/PL31_copy._CB432483346_.jpg',
-    'https://images-na.ssl-images-amazon.com/images/G/31/img21/shoes/September/SSW/pc-header._CB641971330_.jpg',
+    'https://img.freepik.com/free-vector/flat-design-spring-background_23-2148830735.jpg?t=st=1725699604~exp=1725703204~hmac=b8b1e2c64f9184859aed8fbf1f243b0e09e6b978ff2fa29675276ef3b5a22ac9&w=996',
+    'https://img.freepik.com/free-vector/floral-spring-wallpaper-with-greeting_23-2148825681.jpg?t=st=1725699637~exp=1725703237~hmac=faea2724a2987143e1a4d248eb36aa30743baecaea9ced259380a861d2c0644e&w=996',
+    'https://img.freepik.com/free-vector/spring-pink-rose-floral-background-with-watercolor_65186-2890.jpg?t=st=1725699105~exp=1725702705~hmac=4f35eceb40b86eacb23041be47815aaa7eda64616bf5432d2a74ddc543b16df1&w=996',
+    'https://img.freepik.com/free-vector/pink-flower-set_53876-93707.jpg?t=st=1725699672~exp=1725703272~hmac=019ad598374668146cc58a068dd20d44db26a91ed335a10f1a6fc98b45d79018&w=996',
   ];
 
   static const List<Map<String, String>> categoryImages = [
@@ -42,16 +41,16 @@ class GlobalVariables {
       'image': 'assets/images/ornamental-cabbage.png',
     },
     {
-      'title': 'Essentials',
+      'title': 'Hoa khô',
       'image': 'assets/images/flower.png',
     },
     {
-      'title': 'Appliances',
-      'image': 'assets/images/appliances.jpeg',
+      'title': 'Hạt giống',
+      'image': 'assets/images/fruit-tree.png',
     },
     {
-      'title': 'Books',
-      'image': 'assets/images/books.jpeg',
+      'title': 'Chậu hoa',
+      'image': 'assets/images/flower (1).png',
     },
     {
       'title': 'Hoa sự kiện',

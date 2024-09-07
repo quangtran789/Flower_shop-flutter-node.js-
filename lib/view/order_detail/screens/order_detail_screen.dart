@@ -1,8 +1,12 @@
 import 'package:byshop/models/order.dart';
+import 'package:byshop/providers/user_provider.dart';
 import 'package:byshop/utils/global.colors.dart';
+import 'package:byshop/view/admin/services/admin_services.dart';
 import 'package:byshop/view/search/screens/search_screen.dart';
+import 'package:byshop/view/widgets/customButton.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:provider/provider.dart';
 
 class OrderDetailScreen extends StatefulWidget {
   static const String routeName = '/order-detail';
@@ -15,6 +19,7 @@ class OrderDetailScreen extends StatefulWidget {
 
 class _OrderDetailScreenState extends State<OrderDetailScreen> {
   int currentStep = 0;
+  final AdminServices adminServices = AdminServices();
 
   void navigateToSearchScreen(String query) {
     Navigator.pushNamed(context, SearchScreen.routeName, arguments: query);
@@ -23,11 +28,26 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
   @override
   void initState() {
     super.initState();
-    currentStep = widget.order.status; // Status của đơn hàng
+    currentStep = widget.order.status;
+  }
+
+  //Only for admin
+  void changeOrderStatus(int status) {
+    adminServices.changeOrderStatus(
+      context: context,
+      status: status + 1,
+      order: widget.order,
+      onSuccess: () {
+        setState(() {
+          currentStep += 1;
+        });
+      },
+    );
   }
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
@@ -201,7 +221,13 @@ class _OrderDetailScreenState extends State<OrderDetailScreen> {
                 child: Stepper(
                   currentStep: currentStep,
                   controlsBuilder: (context, details) {
-                    return const SizedBox(); // Ẩn các nút điều khiển
+                    if (user.type == 'admin') {
+                      return CustomButton(
+                        text: 'Done',
+                        onTap: () => changeOrderStatus(details.currentStep),
+                      );
+                    }
+                    return const SizedBox();
                   },
                   steps: [
                     Step(

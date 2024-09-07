@@ -223,14 +223,6 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
             Padding(
               padding: const EdgeInsets.all(10),
               child: CustomButton(
-                text: "Mua ngay",
-                onTap: () {},
-                color: Colors.green,
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: CustomButton(
                 text: "Thêm vào giỏ hàng",
                 color: Colors.pink[300],
                 onTap: addToCart,

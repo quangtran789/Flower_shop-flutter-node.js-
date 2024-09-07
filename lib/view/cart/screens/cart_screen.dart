@@ -38,6 +38,7 @@ class _CartScreenState extends State<CartScreen> {
         .toList();
 
     return Scaffold(
+      backgroundColor: Color(0xfff0dfce),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
@@ -90,10 +91,11 @@ class _CartScreenState extends State<CartScreen> {
                             width: 1,
                           ),
                         ),
-                        hintText: 'Search Amazon.in',
+                        hintText: 'Tìm kiếm trên Love...',
                         hintStyle: const TextStyle(
-                          fontWeight: FontWeight.w500,
-                          fontSize: 17,
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          fontFamily: 'Matemasie',
                         ),
                       ),
                     ),
@@ -118,7 +120,7 @@ class _CartScreenState extends State<CartScreen> {
             Padding(
               padding: const EdgeInsets.all(8.0),
               child: CustomButton(
-                text: 'Proceed to Buy (${user.cart.length} items)',
+                text: 'Tiến thành mua (${user.cart.length}sản phẩm)',
                 onTap: () => navigateToAddress(sum),
                 color: Colors.yellow[600],
               ),

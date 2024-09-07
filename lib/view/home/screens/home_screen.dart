@@ -6,7 +6,6 @@ import 'package:byshop/view/home/widgets/top_categories.dart';
 import 'package:byshop/view/search/screens/search_screen.dart';
 import 'package:flutter/material.dart';
 
-
 class HomeScreen extends StatefulWidget {
   static const String routeName = '/home';
   const HomeScreen({super.key});
@@ -22,8 +21,8 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
+      backgroundColor: Color(0xfff0dfce),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
@@ -74,7 +73,7 @@ class _HomeScreenState extends State<HomeScreen> {
                               width: 1,
                             ),
                           ),
-                          hintText: 'Tìm kiếm trên Glind...',
+                          hintText: 'Tìm kiếm trên Love...',
                           hintStyle: const TextStyle(
                             fontSize: 16,
                             fontWeight: FontWeight.w600,
@@ -101,9 +100,10 @@ class _HomeScreenState extends State<HomeScreen> {
           children: const [
             AddressBox(),
             SizedBox(height: 10),
+            CarouselImage(),
+            SizedBox(height: 10),
             TopCategories(),
             SizedBox(height: 10),
-            CarouselImage(),
             DealOfDay(),
           ],
         ),

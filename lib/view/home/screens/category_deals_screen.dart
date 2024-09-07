@@ -18,6 +18,7 @@ class CategoryDealsScreen extends StatefulWidget {
 class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
   List<Product>? productList;
   final HomeServices homeService = HomeServices();
+
   @override
   void initState() {
     super.initState();
@@ -35,6 +36,7 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xfff0dfce),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(50),
         child: AppBar(
@@ -66,17 +68,17 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                     ),
                   ),
                 ),
-                SizedBox(
-                  height: 170,
+                Expanded(
                   child: GridView.builder(
-                    scrollDirection: Axis.horizontal,
-                    padding: const EdgeInsets.only(left: 15),
+                    padding: const EdgeInsets.all(15),
                     itemCount: productList!.length,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
-                      crossAxisCount: 1,
-                      childAspectRatio: 1.4,
-                      mainAxisSpacing: 10,
+                      crossAxisCount: 2, // 2 columns
+                      crossAxisSpacing:
+                          10, // Horizontal spacing between columns
+                      mainAxisSpacing: 10, // Vertical spacing between rows
+                      childAspectRatio: 0.8, // Aspect ratio of height / width
                     ),
                     itemBuilder: (context, index) {
                       final product = productList![index];
@@ -86,19 +88,23 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                             arguments: product),
                         child: Column(
                           children: [
-                            SizedBox(
-                              height: 100,
-                              child: DecoratedBox(
-                                decoration: BoxDecoration(
-                                  border: Border.all(
-                                    color: Colors.black12,
-                                    width: 0.5,
+                            Expanded(
+                              child: ClipRRect(
+                                borderRadius: BorderRadius.circular(
+                                    8.0), // Adjust the radius here
+                                child: DecoratedBox(
+                                  decoration: BoxDecoration(
+                                    border: Border.all(
+                                      color: Colors.black12,
+                                      width: 0.5,
+                                    ),
                                   ),
-                                ),
-                                child: Padding(
-                                  padding: const EdgeInsets.all(10),
-                                  child: Image.network(
-                                    product.images[0],
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(10),
+                                    child: Image.network(
+                                      product.images[0],
+                                      fit: BoxFit.cover,
+                                    ),
                                   ),
                                 ),
                               ),
@@ -106,18 +112,18 @@ class _CategoryDealsScreenState extends State<CategoryDealsScreen> {
                             Container(
                               alignment: Alignment.topLeft,
                               padding: const EdgeInsets.only(
-                                left: 0,
                                 top: 5,
                                 right: 15,
                               ),
                               child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
                                     product.name,
                                     maxLines: 1,
                                     overflow: TextOverflow.ellipsis,
                                   ),
-                                  Text('${product.price} vnd')
+                                  Text('${product.price} vnd'),
                                 ],
                               ),
                             ),

@@ -11,6 +11,7 @@ class AccountScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(0xfff0dfce),
       appBar: PreferredSize(
         preferredSize: const Size.fromHeight(60),
         child: AppBar(
@@ -25,9 +26,11 @@ class AccountScreen extends StatelessWidget {
               Container(
                 alignment: Alignment.topLeft,
                 child: Image.asset(
-                  'assets/images/logo (2).png',
-                  width: 120,
-                  height: 45,
+                  'assets/images/80699.jpg',
+                  width: 100, // Điều chỉnh kích thước width để vừa vặn
+                  height: 40, // Điều chỉnh kích thước height để vừa vặn
+                  fit:
+                      BoxFit.contain, // Sử dụng BoxFit để điều chỉnh kích thước
                 ),
               ),
               Container(

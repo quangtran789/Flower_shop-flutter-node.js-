@@ -89,22 +89,24 @@ class _BottomBarState extends State<BottomBar> {
           // CART
           BottomNavigationBarItem(
             icon: Container(
-              width: bottomBarWidth,
-              decoration: BoxDecoration(
-                border: Border(
-                  top: BorderSide(
-                    color: _page == 2
-                        ? GlobalVariables.selectedNavBarColor
-                        : GlobalVariables.backgroundColor,
-                    width: bottomBarBorderWidth,
+                width: bottomBarWidth,
+                decoration: BoxDecoration(
+                  border: Border(
+                    top: BorderSide(
+                      color: _page == 2
+                          ? GlobalVariables.selectedNavBarColor
+                          : GlobalVariables.backgroundColor,
+                      width: bottomBarBorderWidth,
+                    ),
                   ),
                 ),
-              ),
                 child: badges.Badge(
-                  badgeContent: Text(userCartLen.toString()),
+                  badgeContent: Text(
+                    userCartLen.toString(),
+                    style: TextStyle(color: Colors.black),
+                  ),
                   badgeStyle: badges.BadgeStyle(
-                    badgeColor:
-                        Colors.white, // Thay đổi màu sắc của badge ở đây
+                    badgeColor: Colors.pink, // Thay đổi màu sắc của badge ở đây
                   ),
                   child: Icon(
                     Icons.shopping_cart_outlined,

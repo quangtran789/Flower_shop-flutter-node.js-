@@ -37,7 +37,7 @@ class _LoginviewState extends State<Loginview> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xffffffff),
+      backgroundColor: const Color(0xffffc6c7),
       body: SingleChildScrollView(
         child: SafeArea(
           child: Container(
@@ -49,7 +49,7 @@ class _LoginviewState extends State<Loginview> {
                 Container(
                   alignment: Alignment.center,
                   child: Image.asset(
-                    'assets/images/logo (2).png',
+                    'assets/images/80699.jpg',
                     width: 250,
                     height: 200,
                   ),
@@ -100,7 +100,6 @@ class _LoginviewState extends State<Loginview> {
                             CustomTextfield(
                               controller: emailController,
                               hintText: 'Tài khoản email',
-                              
                             ),
                             const SizedBox(
                               height: 15,
@@ -108,7 +107,6 @@ class _LoginviewState extends State<Loginview> {
                             CustomTextfield(
                               controller: passwordController,
                               hintText: 'Mật khẩu',
-                              
                             ),
                             const SizedBox(
                               height: 20,

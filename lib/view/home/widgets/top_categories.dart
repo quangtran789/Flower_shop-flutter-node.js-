@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 class TopCategories extends StatelessWidget {
   const TopCategories({super.key});
+
   void navigateToCategory(BuildContext context, String category) {
     Navigator.pushNamed(context, CategoryDealsScreen.routeName,
         arguments: category);
@@ -16,7 +17,7 @@ class TopCategories extends StatelessWidget {
       child: ListView.builder(
         itemCount: GlobalVariables.categoryImages.length,
         scrollDirection: Axis.horizontal,
-        itemExtent: 90,
+        itemExtent: 80,
         itemBuilder: (context, index) {
           return GestureDetector(
             onTap: () => navigateToCategory(
@@ -27,13 +28,20 @@ class TopCategories extends StatelessWidget {
               children: [
                 Container(
                   padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: ClipRRect(
-                    borderRadius: BorderRadius.circular(50),
-                    child: Image.asset(
-                      GlobalVariables.categoryImages[index]['image']!,
-                      fit: BoxFit.cover,
-                      height: 40,
-                      width: 40,
+                  child: Container(
+                    decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      color: Colors.grey[
+                          200], // Background color for the circular background
+                    ),
+                    child: ClipRRect(
+                      borderRadius: BorderRadius.circular(50),
+                      child: Image.asset(
+                        GlobalVariables.categoryImages[index]['image']!,
+                        fit: BoxFit.cover,
+                        height: 40,
+                        width: 40,
+                      ),
                     ),
                   ),
                 ),
